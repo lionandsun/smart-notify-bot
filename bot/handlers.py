@@ -3,9 +3,8 @@ import json
 import logging
 from telegram import Update
 from telegram.error import TelegramError
-from telegram.ext import ContextTypes
 import config
-from . import db, payments, utils
+from . import db, payments
 
 logger = logging.getLogger(__name__)
 
@@ -141,7 +140,7 @@ async def upgrade(update, context):
     if result.confirmed and result.amount_usdt + 1e-9 >= config.PAYMENT_AMOUNT_USDT:
         await db.record_payment(tx_hash, user.id, result.amount_usdt, "confirmed", raw)
         await db.activate_paid_subscription(user.id, tx_hash)
-        await status_message.edit_text("✅ Payment verified!\nSubscription: PAID\nNotifications: unlimited")
+        await status_msg.edit_text("✅ Payment verified!\\nSubscription: PAID\\nNotifications: unlimited")
         return
     if result.confirmed:
         await db.record_payment(tx_hash, user.id, result.amount_usdt, "underpaid", raw)

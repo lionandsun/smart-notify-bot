@@ -1,7 +1,5 @@
 import asyncio
 import logging
-from telegram import Update
-from telegram.ext import ContextTypes
 from . import db, utils
 
 logger = logging.getLogger(__name__)

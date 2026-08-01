@@ -6,7 +6,6 @@ from datetime import datetime, timezone
 from typing import Optional
 import httpx
 from telegram.error import Forbidden, TelegramError
-from telegram.ext import Application
 import config
 from . import db
 

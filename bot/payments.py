@@ -1,6 +1,6 @@
 import asyncio
 import re
-from dataclasses import dataclass, asdict
+from dataclasses import dataclass
 from typing import Optional
 
 TX_HASH_REGEX = re.compile(r"^[A-Fa-f0-9]{64}$")
