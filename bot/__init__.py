@@ -1,0 +1,1 @@
+"""smart-notify-bot package."""
